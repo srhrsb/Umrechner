@@ -4,11 +4,9 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class View extends JFrame {
-
     private JButton actionBtn;
     private JTextField taskTf;
     private JLabel resultLabel;
-
 
     public View( int width, int height ){
          setSize( width, height);
