@@ -33,7 +33,6 @@ public class View extends JFrame {
         centerPanel.setLayout(new GridLayout( 2, 1));
         centerPanel.setBorder(new EmptyBorder(5,5,5,5));
 
-
         add( topPanel, BorderLayout.NORTH);
         add( centerPanel, BorderLayout.CENTER);
         add(bottomPanel, BorderLayout.SOUTH);
@@ -55,6 +54,7 @@ public class View extends JFrame {
     }
 
     public void addActionButtonHandler( ActionListener listener){
+
         actionBtn.addActionListener( listener );
     }
 
