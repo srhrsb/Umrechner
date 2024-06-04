@@ -27,8 +27,6 @@ public class Controller {
 
         //ToDo: Berechnung/Umrechnung
 
-
-
         //ToDo: Ergebnis ausgeben
 
     }

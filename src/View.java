@@ -18,7 +18,6 @@ public class View extends JFrame {
          setVisible(true);
     }
 
-
     /**
      * Fügt UI Elemente dem Fenster hinzu
      */
