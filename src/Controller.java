@@ -46,11 +46,10 @@ public class Controller {
 
         //ToDo: Berechnung/Umrechnung
         String result = getResult( taskData );
-        System.out.println(result);
-
+        //System.out.println(result);
 
         //ToDo: Ergebnis ausgeben
-
+        view.showResult(result);
     }
 
     private String getResult( String[] taskData ){

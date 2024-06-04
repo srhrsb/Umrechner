@@ -62,4 +62,8 @@ public class View extends JFrame {
        return taskTf.getText();
     }
 
+    public void showResult( String result){
+        resultLabel.setText(result);
+    }
+
 }
