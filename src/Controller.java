@@ -1,5 +1,7 @@
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Controller {
 
@@ -44,8 +46,7 @@ public class Controller {
 
         //ToDo: Berechnung/Umrechnung
         String result = getResult( taskData );
-
-
+        System.out.println(result);
 
 
         //ToDo: Ergebnis ausgeben
@@ -53,13 +54,39 @@ public class Controller {
     }
 
     private String getResult( String[] taskData ){
+        float result = 0;
 
+        boolean cmToM = taskData[1].toLowerCase().equals("cm") &&
+                        taskData[2].toLowerCase().equals("m");
 
+        boolean mmToM = taskData[1].toLowerCase().equals("mm") &&
+                        taskData[2].toLowerCase().equals("m");
 
+        boolean mToCm = taskData[1].toLowerCase().equals("m") &&
+                        taskData[2].toLowerCase().equals("cm");
 
+        boolean mToMm = taskData[1].toLowerCase().equals("m") &&
+                        taskData[2].toLowerCase().equals("mm");
 
-        return null;
+        if( cmToM==true ){
+            result = Float.valueOf(taskData[0])/100;
+        }
+        else if (mmToM==true){
+            result = Float.valueOf(taskData[0])/1000;
+        }
+        else if (mToCm==true){
+            result = Float.valueOf(taskData[0])*100;
+        }
+        else if (mToMm==true){
+            result = Float.valueOf(taskData[0])*1000;
+        }
+        else{
+            return "Diese Umrechnung wird nicht unterstützt";
+        };
+
+        return result+" "+taskData[2];
     }
+
 
     /**
      * Parsen der Nutzereingabe für die Berechnung
