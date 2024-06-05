@@ -40,16 +40,21 @@ public class Controller {
         //ToDo: string mit Aufgabe holen
         String task = view.getTaskText();
 
-        //ToDo: Parsen des strings
+        //Parsen des strings
         var taskData = parseTaskInput( task );
         System.out.println(Arrays.toString(taskData));
 
-        //ToDo: Berechnung/Umrechnung
-        String result = getResult( taskData );
-        //System.out.println(result);
+        //Berechnung/Umrechnung
+        //String result = getResult( taskData );
+        String result = getResultV2( taskData );
 
-        //ToDo: Ergebnis ausgeben
+        //Ergebnis ausgeben
         view.showResult(result);
+
+
+
+
+
     }
 
     private String getResult( String[] taskData ){
@@ -85,6 +90,40 @@ public class Controller {
 
         return result+" "+taskData[2];
     }
+
+    private String getResultV2( String[] taskData)
+    {
+         float from = getValue(taskData[1]);
+         float to = getValue(taskData[2]);
+
+         //Zahl die umgerechnet werden soll
+         float value = Float.valueOf(taskData[0]);
+
+         //Fall: wenn to und from gleich sind
+         float result = value;
+
+         //Falls berechnet werden muss:
+         if(to != from) {
+             float valueInMeter = value / from;
+             result = valueInMeter * to;
+         }
+
+         return result +" "+taskData[2];
+    }
+
+    private float getValue(String unit){
+        String[] units = {"mm","cm","dm","m","km"};
+        Float[] values = {1000f,100f, 10f, 1f, 1/1000f};
+
+        for (int i = 0; i < units.length; i++) {
+            if(units[i].equals(unit)){
+                return values[i];
+            }
+        }
+        return 1f;
+    }
+
+
 
 
     /**
